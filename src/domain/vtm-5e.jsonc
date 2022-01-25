@@ -1,0 +1,80 @@
+{
+    // property Groups are a way of grouping properties together
+    // and setting common values for them.
+    "property-groups": [
+        // property Group called "properties"
+        {
+            "name": "attributes",
+            "dislay-text": "Attributes",
+            "type": "number" // default types: number, string, tag, option-list, resource, track
+        },
+        // property Group called "Skills"
+        {
+            "name": "skills",
+            "dislay-text": "Skills",
+            "type": "number",
+            // a property can have sunproperties that belong only to them.
+            "child-properties": {
+                "name": "specialization",
+                "description": "Specialization",
+                "optional": true
+            }
+        }
+    ],
+    "properties": [
+        // properties don't need to belong to a group.
+        {
+            "name": "name",
+            "display-text": "Character Name",
+            "type": "string"
+        },
+        // but if they do, then they inherit any value set on their property-group.
+        // in this case, it inherits the "type" and the child property "specialization"
+        {
+            "group": "properties",
+            "name": "attr_dexterity",
+            "display-text": "Dexterity"
+        },
+        // any value explicitly set on the property will override that value set in the "property group"
+        {
+            "group": "skills",
+            "name": "skill_athletics",
+            "display-text": "Athletics",
+            "type": "number"
+        },
+        // Tags, for properties that have no corresponding value.
+        {
+            "name": "npc",
+            "display-text": "NPC",
+            "type": "tag"
+        },
+        // option-list, a property that chooses between one of a set number of values
+        {
+            "name": "predator-type",
+            "display-text": "Predator Type",
+            "type": "option-list",
+            "options": [
+                { "name": "alleycat", "display-text": "Alleycat" },
+                { "name": "bagger", "display-text": "Bagger" }
+            ]
+        },
+        // resource, a property that has a max and current value.
+        {
+            "name": "hunger",
+            "display-text": "Hunger",
+            "type": "resource"
+        },
+        // track: modeled after WoD, but for any property that tracks the state of multiple values
+        // essentially a combination of "resource" with an associated array of "option-list"
+        {
+            "name": "health",
+            "display-text": "Health",
+            "type": "track",
+            "track-options": [
+                "Empty",
+                "Superficial",
+                "Aggravated"
+            ]
+        }
+    ]
+}
