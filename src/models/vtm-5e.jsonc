@@ -1,0 +1,32 @@
+{
+    "entity-blueprints": {
+        "character": {
+            "group-name": "basic-info",
+            "display-text": "Background",
+            "default-type": "string",
+            "traits": [
+                {
+                    "name": "name",
+                    "display-text": "Character Name"
+                },
+                {
+                    "name": "sect",
+                    "display-text": "Sect",
+                    "type": "option-list",
+                    "options": [
+                        "Camarilla",
+                        "Sabbat",
+                        "Anarch",
+                        "Unaligned"
+                    ]
+                },
+                {
+                    "name": "name",
+                    "display-text": "Character Name"
+                }
+            ]
+        },
+        "item": {},
+        "location": {}
+    }
+}
